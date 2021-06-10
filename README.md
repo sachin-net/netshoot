@@ -1,13 +1,62 @@
-## netshoot: a Docker + Kubernetes network trouble-shooting swiss-army container
+## Netshoot: a Docker + Kubernetes network trouble-shooting swiss-army container
+
+Create a Single Pod to get Privileged access to a host with hostNetwork, hostPID and hostIPC
 
 ```
+kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-pid-net-ipc-access-pod.yaml
+```
+
+
+
+Create DaemonSet to get Privileged access to multiple hosts with hostNetwork, hostPID and hostIPC
+
+```
+kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-pid-net-ipc-access-daemonset-pod.yaml
+```
+
+Exec into one of the Pod based on the Worker node on which you want to debug
+
+```
+kubectl get po -o wide | grep netshoot                                                                                                                   
+netshoot-pid-net-ipc-access-daemonset-pod-c9mv6   1/1     Running   0          16s   10.133.28.0      ip-10-133-28-0.ec2.internal    <none>           <none>
+netshoot-pid-net-ipc-access-daemonset-pod-chrlp   1/1     Running   0          16s   10.133.19.96     ip-10-133-19-96.ec2.internal   <none>           <none>
+```
+
+```
+kubectl exec -it netshoot-pid-net-ipc-access-daemonset-pod-c9mv6 zsh                                                                                
+kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
                     dP            dP                           dP
                     88            88                           88
 88d888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. .d8888b. d8888P
 88'  `88 88ooood8   88   Y8ooooo. 88'  `88 88'  `88 88'  `88   88
 88    88 88.  ...   88         88 88    88 88.  .88 88.  .88   88
 dP    dP `88888P'   dP   `88888P' dP    dP `88888P' `88888P'   dP
+
+Welcome to Netshoot! (github.com/nicolaka/netshoot)
+
+
+
+ ip-10-133-28-0  ~ 
+ ```
+
+
+To exec into one of the application contianer as a privileged user then use below command. This can be extremely helpful if your application container does not allow privileged access. 
+
 ```
+docker exec -it --user=root --privileged CONTAINER_ID bash
+
+#OR
+
+docker run -it --net container:<CONTAINER_ID> nicolaka/netshoot
+```
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------
 
 **Purpose:** Docker and Kubernetes network troubleshooting can become complex. With proper understanding of how Docker and Kubernetes networking works and the right set of tools, you can troubleshoot and resolve these networking issues. The `netshoot` container has a set of powerful networking tshooting tools that can be used to troubleshoot Docker networking issues. Along with these tools come a set of use-cases that show how this container can be used in real-world scenarios.
 
