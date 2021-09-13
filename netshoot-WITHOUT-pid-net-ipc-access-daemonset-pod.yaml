@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+  labels:
+    name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+spec:
+  selector:
+    matchLabels:
+      name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+  template:
+    metadata:
+      labels:
+        name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+    spec:
+      containers:
+      - name: netshoot-with-docker
+        image: angadisachin2/netshoot
+        command: [ "bash", "-c", "sleep 5h" ]
+        volumeMounts:
+        - mountPath: /var/run/
+          name: docker-sock
+          # readOnly: true
+      volumes:
+      - name: docker-sock
+        hostPath:
+          path: /var/run/
+          type: Directory
