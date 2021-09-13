@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+  name: netshoot-without-pid-net-ipc-access-daemonset-pod
   labels:
-    name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+    name: netshoot-without-pid-net-ipc-access-daemonset-pod
 spec:
   selector:
     matchLabels:
-      name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+      name: netshoot-without-pid-net-ipc-access-daemonset-pod
   template:
     metadata:
       labels:
-        name: netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod
+        name: netshoot-without-pid-net-ipc-access-daemonset-pod
     spec:
       containers:
       - name: netshoot-with-docker
