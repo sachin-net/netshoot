@@ -1,5 +1,7 @@
 ## Netshoot: a Docker + Kubernetes network trouble-shooting swiss-army container
 
+**Privileged access**
+
 Create a Single Pod to get **Privileged** access to a host with hostNetwork, hostPID and hostIPC
 
 ```
@@ -14,13 +16,13 @@ Create DaemonSet to get **Privileged** access to multiple hosts with hostNetwork
 kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-pid-net-ipc-access-daemonset-pod.yaml
 ```
 
+**NON-Privileged access**
+
 Create a Single Pod to get **NON-Privileged** access
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-WITHOUT-pid-net-ipc-access-pod.yaml
 ```
-
-
 
 Create DaemonSet to get **NON-Privileged** access to multiple hosts
 
@@ -28,6 +30,7 @@ Create DaemonSet to get **NON-Privileged** access to multiple hosts
 kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod.yaml
 ```
 
+**HOW TO ACCESS THE POD(S) ?**
 
 Exec into one of the Pod based on the Worker node on which you want to debug
 
