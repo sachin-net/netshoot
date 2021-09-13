@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: netshoot-WITHOUT-pid-net-ipc-access-pod
+  name: netshoot-without-pid-net-ipc-access-pod
 spec:
   hostNetwork: true
   hostPID: true
   hostIPC: true
   containers:
-  - name: netshoot-WITHOUT-pid-net-ipc-access-pod
+  - name: netshoot-without-pid-net-ipc-access-pod
     image: angadisachin2/netshoot
     command: [ "bash", "-c", "sleep 5h" ]
     securityContext:
