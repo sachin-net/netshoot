@@ -21,13 +21,13 @@ kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/ne
 Create a Single Pod to get **NON-Privileged** access
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-WITHOUT-pid-net-ipc-access-pod.yaml
+kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-without-pid-net-ipc-access-pod.yaml
 ```
 
 Create DaemonSet to get **NON-Privileged** access to multiple hosts
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-WITHOUT-pid-net-ipc-access-daemonset-pod.yaml
+kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-without-pid-net-ipc-access-daemonset-pod.yaml
 ```
 
 **HOW TO ACCESS THE POD(S) ?**
