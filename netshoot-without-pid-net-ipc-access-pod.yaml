@@ -3,15 +3,10 @@ kind: Pod
 metadata:
   name: netshoot-without-pid-net-ipc-access-pod
 spec:
-  hostNetwork: true
-  hostPID: true
-  hostIPC: true
   containers:
   - name: netshoot-without-pid-net-ipc-access-pod
     image: angadisachin2/netshoot
     command: [ "bash", "-c", "sleep 5h" ]
-    securityContext:
-      privileged: true
     volumeMounts:
     - mountPath: /var/run/
       name: docker-sock
