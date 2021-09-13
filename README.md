@@ -1,6 +1,6 @@
 ## Netshoot: a Docker + Kubernetes network trouble-shooting swiss-army container
 
-**Privileged access**
+**Privileged access:**
 
 Create a Single Pod to get **Privileged** access to a host with hostNetwork, hostPID and hostIPC
 
@@ -16,7 +16,7 @@ Create DaemonSet to get **Privileged** access to multiple hosts with hostNetwork
 kubectl apply -f https://raw.githubusercontent.com/sachin-net/netshoot/master/netshoot-pid-net-ipc-access-daemonset-pod.yaml
 ```
 
-**NON-Privileged access**
+**NON-Privileged access:**
 
 Create a Single Pod to get **NON-Privileged** access
 
